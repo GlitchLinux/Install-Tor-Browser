@@ -47,10 +47,6 @@ echo "Running Tor Browser updater..."
 echo "Waiting for 10 seconds..."
 sleep 10
 
-# Create a symbolic link to the start-tor-browser.desktop in the user's Desktop directory
-echo "Creating symbolic link for start-tor-browser.desktop on user's Desktop..."
-ln -s ${TEMP_DIR}/tor-browser/Browser/start-tor-browser.desktop ${USER_DESKTOP}/start-tor-browser.desktop
-
 # Launch Tor Browser using the desktop entry in the background
 echo "Launching Tor Browser..."
 ./start-tor-browser.desktop 
