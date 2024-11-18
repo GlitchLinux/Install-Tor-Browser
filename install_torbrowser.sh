@@ -39,10 +39,4 @@ chmod +x ./start-tor-browser.desktop
 
 # Launch Tor Browser using the desktop entry in the background
 echo "Launching Tor Browser..."
-./start-tor-browser.desktop &
-
-# Disown the process to ensure it continues running after the terminal closes
-disown
-
-# Close the terminal window after launching Tor Browser
-exit
+./start-tor-browser.desktop
