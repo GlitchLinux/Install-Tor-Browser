@@ -23,6 +23,8 @@ This script automates the process of downloading and installing Tor Browser on a
    You can clone the repository using `git`:
 
    ```bash
+   mkdir /tmp/torbrowser/
+   cd  tmp/torbrowser/
    git clone https://github.com/GlitchLinux/Install-Tor-Browser.git
    cd Install-Tor-Browser
    bash install_torbrowser.sh
