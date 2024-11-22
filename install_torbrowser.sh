@@ -7,6 +7,7 @@ echo "║ Browser will now download ║"
 echo "║     install & start.      ║"
 echo "╚═══════════════════════════╝"
 echo "‎ "
+
 # Get the username
 USERNAME=$USER
 
@@ -16,9 +17,6 @@ DESKTOP_PATH="/home/$USERNAME/Desktop"
 # Define the temp directory and download URL
 TEMP_DIR="/tmp/tor"
 TOR_BROWSER_URL="https://www.torproject.org/dist/torbrowser/14.0.2/tor-browser-linux-x86_64-14.0.2.tar.xz"
-
-# Define the user's desktop directory
-USER_DESKTOP="/home/x/Desktop"
 
 # Remove the existing /tmp/tor/ directory if it exists
 # echo "Cleaning up any previous installation in /tmp/tor"
