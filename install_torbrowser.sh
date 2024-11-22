@@ -49,4 +49,5 @@ sleep 10
 
 # Launch Tor Browser using the desktop entry in the background
 echo "Launching Tor Browser..."
-./start-tor-browser.desktop 
+bash /tmp/tor/tor-browser/Browser/start-tor-browser
+echo "Safe Browsing!"
