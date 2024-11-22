@@ -1,7 +1,17 @@
 #!/bin/bash
 
-# install_torbrowser.sh
-# Download and install Tor Browser
+# Display fancy banner
+echo "╔═══════════════════════════╗"
+echo "║ TOR BROWSER - AutoScript! ║"
+echo "║ Browser will now download ║"
+echo "║     install & start.      ║"
+echo "╚═══════════════════════════╝"
+
+# Get the username
+USERNAME=$USER
+
+# Construct the path to the user's Desktop
+DESKTOP_PATH="/home/$USERNAME/Desktop"
 
 # Define the temp directory and download URL
 TEMP_DIR="/tmp/tor"
@@ -11,8 +21,9 @@ TOR_BROWSER_URL="https://www.torproject.org/dist/torbrowser/14.0.2/tor-browser-l
 USER_DESKTOP="/home/x/Desktop"
 
 # Remove the existing /tmp/tor/ directory if it exists
-echo "Cleaning up any previous installation in /tmp/tor..."
+# echo "Cleaning up any previous installation in /tmp/tor"
 rm -rf ${TEMP_DIR}
+rm -f /home/$USERNAME/Desktop/tor.desktop
 
 # Create a temporary directory for the installation
 mkdir -p ${TEMP_DIR}
@@ -36,18 +47,20 @@ rm "tor-browser-linux-x86_64-14.0.2.tar.xz"
 # Move into the extracted directory
 cd tor-browser/ || exit
 
-# Ensure the start-tor-browser.desktop file is executable
-chmod +x ./start-tor-browser.desktop
+#Create a desktop icon
+touch /home/$USERNAME/Desktop/Tor.desktop
+echo "[Desktop Entry]" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Version=1.0" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Type=Application" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Name=Tor Browser" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Comment=" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Exec=bash /tmp/tor/tor-browser/Browser/start-tor-browser" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Icon=/tmp/tor/tor-browser/Browser/browser/chrome/icons/default/about-logo.svg" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Path=" >> /home/$USERNAME/Desktop/tor.desktop
+echo "Terminal=false" >> /home/$USERNAME/Desktop/tor.desktop
+echo "StartupNotify=false" >> /home/$USERNAME/Desktop/tor.desktop
+rm /home/$USERNAME/Desktop/Tor.desktop
 
-# Run the updater before launching Tor Browser
-echo "Running Tor Browser updater..."
-./Browser/updater
-
-# Wait for 10 seconds before launching the browser
-echo "Waiting for 10 seconds..."
-sleep 10
-
-# Launch Tor Browser using the desktop entry in the background
+# Launch Tor Browser in detached mode
 echo "Launching Tor Browser..."
-bash /tmp/tor/tor-browser/Browser/start-tor-browser
-echo "Safe Browsing!"
+bash "/tmp/tor/tor-browser/Browser/start-tor-browser"
