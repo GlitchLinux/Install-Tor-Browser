@@ -6,7 +6,7 @@ echo "║ TOR BROWSER - AutoScript! ║"
 echo "║ Browser will now download ║"
 echo "║     install & start.      ║"
 echo "╚═══════════════════════════╝"
-
+echo "‎ "
 # Get the username
 USERNAME=$USER
 
@@ -62,5 +62,9 @@ echo "StartupNotify=false" >> /home/$USERNAME/Desktop/tor.desktop
 rm /home/$USERNAME/Desktop/Tor.desktop
 
 # Launch Tor Browser in detached mode
-echo "Launching Tor Browser..."
+echo "Launching Tor Browser"
+echo "‎ "
+echo "CLOSING THIS TERMINAL WILL KILL YOUR BROWSER SESSION!"
+echo "‎ "
+echo "Use desktop icon to start Tor if terminal closes"
 bash "/tmp/tor/tor-browser/Browser/start-tor-browser"
