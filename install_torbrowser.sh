@@ -58,6 +58,7 @@ echo "Path=" >> /home/$USERNAME/Desktop/tor.desktop
 echo "Terminal=false" >> /home/$USERNAME/Desktop/tor.desktop
 echo "StartupNotify=false" >> /home/$USERNAME/Desktop/tor.desktop
 rm /home/$USERNAME/Desktop/Tor.desktop
+chmod +x /home/$USERNAME/Desktop/tor.desktop
 
 # Launch Tor Browser in detached mode
 echo "Launching Tor Browser"
